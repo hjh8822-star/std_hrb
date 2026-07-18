@@ -9,37 +9,45 @@
         .box { text-align: center; width: 90%; max-width: 400px; padding: 30px; border-radius: 16px; background: #1e1e1e; box-shadow: 0 8px 32px rgba(0,0,0,0.5); box-sizing: border-box; border: 1px solid #333; }
         h1 { font-size: 26px; color: #ffffff; margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px; }
         .btn-group { display: flex; flex-direction: column; gap: 14px; }
-        .btn { display: block; color: white; padding: 16px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 8px; transition: 0.2s; text-align: center; }
+        .btn { display: block; color: white; padding: 16px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 8px; transition: 0.2s; text-align: center; cursor: pointer; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        
         .btn-chess { background-color: #81b64c; }
         .btn-chess:hover { background-color: #70a040; }
-        
         .btn-lichess { background-color: #363534; border: 1px solid #555; }
         .btn-lichess:hover { background-color: #444342; }
         
-        .btn-poki { background-color: #ec5a31; }
-        .btn-poki:hover { background-color: #d64f29; }
+        /* 게임 화면을 꽉 차게 띄울 모달창 스타일 */
+        #gameModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: #000; }
+        #gameFrame { width: 100%; height: 100%; border: none; }
+        #closeBtn { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; border: 1px solid #fff; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="box">
+
+    <div class="box" id="mainHub">
         <h1>🎮 GAME HUB</h1>
-        
         <div class="btn-group">
-            <!-- 구글 번역 시스템을 우회 통로로 사용하여 에러 없이 확실하게 접속합니다 -->
-            <a href="https://chess-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=ko" target="_blank" class="btn btn-chess">
-                Chess.com (체스닷컴)
-            </a>
-
-            <a href="https://lichess-org.translate.goog/?_x_tr_sl=en&_x_tr_tl=ko" target="_blank" class="btn btn-lichess">
-                Lichess (리체스)
-            </a>
-
-            <a href="https://poki-com.translate.goog/?_x_tr_sl=en&_x_tr_tl=ko" target="_blank" class="btn btn-poki">
-                Poki (포키 게임)
-            </a>
+            <!-- 임베드 방식으로 지역 제한 없이 안전하게 실행 -->
+            <button onclick="openGame('https://lichess.org/export/embed?theme=auto&bg=auto')" class="btn btn-lichess">Lichess (리체스 체스)</button>
+            <button onclick="openGame('https://games.poki.com/')" class="btn btn-poki" style="background-color: #ec5a31;">Poki (포키 게임 리스트)</button>
         </div>
     </div>
+
+    <!-- 게임이 실행되는 전체 화면 창 -->
+    <div id="gameModal">
+        <button id="closeBtn" onclick="closeGame()">닫기 (X)</button>
+        <iframe id="gameFrame" src=""></iframe>
+    </div>
+
+    <script>
+        function openGame(url) {
+            document.getElementById('gameFrame').src = url;
+            document.getElementById('gameModal').style.display = 'block';
+        }
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.getElementById('gameFrame').src = '';
+        }
+    </script>
 </body>
 </html>
