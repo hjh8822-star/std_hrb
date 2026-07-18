@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS-Education Hub</title> <!-- 선생님이 봐도 눈치 못 채게 공부방 이름으로 위장 -->
+    <title>Game Hub</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #121212; color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .box { text-align: center; width: 90%; max-width: 450px; padding: 30px; border-radius: 12px; background: #1e1e1e; box-shadow: 0 4px 20px rgba(0,0,0,0.5); box-sizing: border-box; }
-        h1 { font-size: 22px; color: #4CAF50; margin-bottom: 10px; }
-        p { color: #888; font-size: 13px; margin-bottom: 25px; line-height: 1.5; }
-        .btn-group { display: flex; flex-direction: column; gap: 12px; }
-        .btn { display: block; background-color: #333; color: white; padding: 14px; font-size: 15px; font-weight: bold; text-decoration: none; border-radius: 6px; transition: 0.2s; border: 1px solid #444; }
-        .btn:hover { background-color: #4CAF50; border-color: #4CAF50; transform: translateY(-1px); }
-        .btn-main { background-color: #4CAF50; border-color: #4CAF50; }
-        .btn-main:hover { background-color: #45a049; }
+        .box { text-align: center; width: 90%; max-width: 400px; padding: 30px; border-radius: 16px; background: #1e1e1e; box-shadow: 0 8px 32px rgba(0,0,0,0.5); box-sizing: border-box; border: 1px solid #333; }
+        h1 { font-size: 26px; color: #ffffff; margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px; }
+        .btn-group { display: flex; flex-direction: column; gap: 14px; }
+        .btn { display: block; color: white; padding: 16px; font-size: 16px; font-weight: bold; text-decoration: none; border-radius: 8px; transition: 0.2s; text-align: center; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        
+        /* 사이트별 고유 색상 지정을 통해 더 깔끔하게 구성 */
+        .btn-chess { background-color: #81b64c; } /* 체스닷컴 시그니처 초록색 */
+        .btn-chess:hover { background-color: #70a040; }
+        
+        .btn-lichess { background-color: #363534; border: 1px solid #555; } /* 리체스 시그니처 어두운 톤 */
+        .btn-lichess:hover { background-color: #444342; }
+        
+        .btn-poki { background-color: #ec5a31; } /* 포키 시그니처 주황색 */
+        .btn-poki:hover { background-color: #d64f29; }
     </style>
 </head>
 <body>
     <div class="box">
-        <h1>Computer Science Cloud Server</h1>
-        <p>외부 실습 도구 및 교육 자원 연동을 위한 메인 허브입니다.<br>원하시는 교육 세션을 선택하세요.</p>
+        <h1>🎮 GAME HUB</h1>
         
         <div class="btn-group">
-            <!-- 1. 체스닷컴 우회 연결 -->
-            <a href="https://txt.unblockit.id/url/https://chess.com" target="_blank" class="btn btn-main">
-                [필수] 교육용 서버 A (Chess.com 연동)
+            <!-- 버튼 클릭 시 즉시 우회 서버를 통해 해당 사이트로 다이렉트 이동합니다 -->
+            <a href="https://txt.unblockit.id/url/https://chess.com" target="_blank" class="btn btn-chess">
+                Chess.com (체스닷컴)
             </a>
 
-            <!-- 2. 리체스 우회 연결 -->
-            <a href="https://txt.unblockit.id/url/https://lichess.org" target="_blank" class="btn">
-                [보조] 교육용 서버 B (Lichess 연동)
+            <a href="https://txt.unblockit.id/url/https://lichess.org" target="_blank" class="btn btn-lichess">
+                Lichess (리체스)
             </a>
 
-            <!-- 3. 포키(Poki) 게임 사이트 우회 연결 -->
-            <a href="https://txt.unblockit.id/url/https://poki.com" target="_blank" class="btn">
-                [실습] 알고리즘 상호작용 시뮬레이터 (Poki)
+            <a href="https://txt.unblockit.id/url/https://poki.com" target="_blank" class="btn btn-poki">
+                Poki (포키 게임)
             </a>
         </div>
     </div>
